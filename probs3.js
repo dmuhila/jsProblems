@@ -36,7 +36,7 @@ const users = [
 ]
 
 //name
-const names = user.map((user)=> user.fname + " "+user.lname)
+const names = users.map((user)=> user.fname + " "+user.lname)
 console.log(names)
 
 function findAge(user){
@@ -124,7 +124,55 @@ const max = numArr.reduce((max, curr)=>{
     return max
 },0)
 
-var today = "abc";
-let today = "cde";
+// var today = "abc";
+// let today = "cde";
 
-console.log(today);
+// console.log(today);
+
+//2D
+var arr = [[1,1,1,0,0,0],
+           [0,1,0,0,0,0],
+           [1,1,1,0,0,0],
+           [0,0,2,4,4,0],
+           [0,0,0,2,0,0],
+           [0,0,1,2,4,0]]
+
+function hourglassSum(arr) {
+  let sumArr = [];
+  var highestSum = 0;
+  for(let n=0; n<4; n++){
+    for(let m=0; m<4; m++){
+     let countRow = 0;
+     let countCol = 0;
+     let sum = 0;
+    for(let i=n; i<n+3; i++){
+      for(let j=m; j<n+3; j++){
+        if(countRow!==1 || (countCol!==0 || countCol!==2)){
+          sum = sum + arr[i][j];
+          //console.log(sum);
+          //console.log("i ",i);
+         //console.log("j ",j);  
+        }
+        countCol++;
+      }
+      countRow++;  
+   }
+   //console.log(sum);
+   sumArr.push(sum); 
+   //console.log(sumArr);
+  }
+}
+sumArr.filter((sum)=> {
+    if(sum>highestSum){
+        highestSum = sum;
+        }
+        //console.log(highestSum);
+    //return highestSum;
+  })
+  return highestSum;
+}
+
+let maxSum = hourglassSum(arr);
+console.log(maxSum)
+
+
