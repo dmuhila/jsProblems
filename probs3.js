@@ -135,23 +135,48 @@ var arr = [[1,1,1,0,0,0],
            [1,1,1,0,0,0],
            [0,0,2,4,4,0],
            [0,0,0,2,0,0],
-           [0,0,1,2,4,0]]
+           [0,0,1,2,4,0]];
 
-function hourglassSum(arr) {
+var arr1 = [[1,1,1,0,0,0],
+            [0,1,0,0,0,0],
+            [1,1,1,0,0,0],
+            [0,9,2,-4,-4,0],
+            [0,0,0,-2,0,0],
+            [0,0,-1,-2,-4,0]];  
+            
+var arr2 = [[-9,-9,-9,1,1,1],
+            [0,-9,0,4,3,2],
+            [-9,-9,-9,1,2,3],
+            [0,0,8,6,6,0],
+            [0,0,0,-2,0,0],
+            [0,0,1,2,4,0]];            
+var arr3 = [[0,-4,-6,0,-7,-6],
+            [-1,-2,-6,-8,-3,-1],
+            [-8,-4,-2,-8,-8,-6],
+            [-3,-1,-2,-5,-7,-4],
+            [-3,-5,-3,-6,-6,-6],
+            [-3,-6,0,-8,-6,-7]]
+function hourglassSum(arr1) {
+  var arr = arr1;  
   let sumArr = [];
-  var highestSum = 0;
+  var highestSum = -63; //constraints -9<= arr[i][j] <=9   0<= i,j <=5
   for(let n=0; n<4; n++){
     for(let m=0; m<4; m++){
      let countRow = 0;
-     let countCol = 0;
      let sum = 0;
+     console.log("n ",n);
+     console.log("m ",m); 
     for(let i=n; i<n+3; i++){
-      for(let j=m; j<n+3; j++){
-        if(countRow!==1 || (countCol!==0 || countCol!==2)){
+        let countCol = 0;
+      for(let j=m; j<m+3; j++){
+        console.log("Row count ",countRow);
+        console.log("Col count ",countCol); 
+        if(countRow!==1 || (countCol!==0 && countCol!==2)){
+            console.log("num ",arr[i][j]);
           sum = sum + arr[i][j];
           //console.log(sum);
-          //console.log("i ",i);
-         //console.log("j ",j);  
+          console.log("i ",i);
+         console.log("j ",j);  
         }
         countCol++;
       }
@@ -159,20 +184,21 @@ function hourglassSum(arr) {
    }
    //console.log(sum);
    sumArr.push(sum); 
-   //console.log(sumArr);
+   console.log(sumArr);
+   console.log(arr);
   }
 }
 sumArr.filter((sum)=> {
     if(sum>highestSum){
         highestSum = sum;
         }
-        //console.log(highestSum);
+        console.log(highestSum);
     //return highestSum;
   })
   return highestSum;
 }
 
-let maxSum = hourglassSum(arr);
+let maxSum = hourglassSum(arr3);
 console.log(maxSum)
 
 
