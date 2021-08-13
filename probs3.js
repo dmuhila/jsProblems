@@ -164,19 +164,19 @@ function hourglassSum(arr1) {
     for(let m=0; m<4; m++){
      let countRow = 0;
      let sum = 0;
-     console.log("n ",n);
-     console.log("m ",m); 
+    //  console.log("n ",n);
+    //  console.log("m ",m); 
     for(let i=n; i<n+3; i++){
         let countCol = 0;
       for(let j=m; j<m+3; j++){
-        console.log("Row count ",countRow);
-        console.log("Col count ",countCol); 
+        // console.log("Row count ",countRow);
+        // console.log("Col count ",countCol); 
         if(countRow!==1 || (countCol!==0 && countCol!==2)){
-            console.log("num ",arr[i][j]);
+            // console.log("num ",arr[i][j]);
           sum = sum + arr[i][j];
           //console.log(sum);
-          console.log("i ",i);
-         console.log("j ",j);  
+        //   console.log("i ",i);
+        //   console.log("j ",j);  
         }
         countCol++;
       }
@@ -184,8 +184,8 @@ function hourglassSum(arr1) {
    }
    //console.log(sum);
    sumArr.push(sum); 
-   console.log(sumArr);
-   console.log(arr);
+//    console.log(sumArr);
+//    console.log(arr);
   }
 }
 sumArr.filter((sum)=> {
@@ -199,6 +199,6 @@ sumArr.filter((sum)=> {
 }
 
 let maxSum = hourglassSum(arr3);
-console.log(maxSum)
+// console.log(maxSum)
 
 
